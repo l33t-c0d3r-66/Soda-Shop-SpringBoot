@@ -49,11 +49,34 @@ public class SodaController {
     }
     
     @DeleteMapping("/soda/{id}")
-    public ResponseEntity<Soda> deleteSoda(@RequestBody Soda soda) {
+    public ResponseEntity<Soda> deleteSoda(@PathVariable("id") Long id) {
         try{
-            sodaService.deleteSoda(soda);
-            return new ResponseEntity<>(soda, HttpStatus.GONE);
+            Soda soda = sodaService.getSodaById(id);
+            if(soda != null) {
+                sodaService.deleteSoda(soda);
+                return new ResponseEntity<>(soda, HttpStatus.GONE);
+            } else {
+                return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+            }
         }catch(Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/soda/search")
+    public ResponseEntity<List<Soda>> searchByName(@RequestParam("query")String query) {
+        try {
+            List<Soda> sodaList = null;
+            if(query == null || query.isEmpty() || query.trim().isEmpty()) {
+                sodaList = sodaService.getAllSodas();
+            } else {
+                sodaList = sodaService.getSodaByName(query);
+            }
+            if (sodaList.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(sodaList, HttpStatus.OK);
+        } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

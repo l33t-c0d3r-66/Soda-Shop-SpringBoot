@@ -32,4 +32,8 @@ public class SodaService {
     public void deleteSoda(Soda soda) {
         sodaRepository.delete(soda);
     }
+
+    public List<Soda> getSodaByName(String name){
+        return sodaRepository.getSodaByFields(name);
+    }
 }

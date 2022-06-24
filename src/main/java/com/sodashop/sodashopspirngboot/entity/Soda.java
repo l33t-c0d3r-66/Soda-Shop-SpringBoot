@@ -21,6 +21,14 @@ public class Soda {
     public Soda() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -75,5 +83,19 @@ public class Soda {
 
     public void setInstruction(String instruction) {
         this.instruction = instruction;
+    }
+
+    @Override
+    public String toString() {
+        return "Soda{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", glass='" + glass + '\'' +
+                ", glassSize='" + glassSize + '\'' +
+                ", image='" + image + '\'' +
+                ", ingredients='" + ingredients + '\'' +
+                ", instruction='" + instruction + '\'' +
+                '}';
     }
 }
