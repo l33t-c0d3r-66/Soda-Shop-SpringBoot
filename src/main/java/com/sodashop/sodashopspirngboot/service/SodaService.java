@@ -3,10 +3,12 @@ package com.sodashop.sodashopspirngboot.service;
 import com.sodashop.sodashopspirngboot.entity.Soda;
 import com.sodashop.sodashopspirngboot.repository.SodaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class SodaService {
     @Autowired
     private SodaRepository sodaRepository;
