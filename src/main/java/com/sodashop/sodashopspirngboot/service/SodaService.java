@@ -2,11 +2,13 @@ package com.sodashop.sodashopspirngboot.service;
 
 import com.sodashop.sodashopspirngboot.entity.Soda;
 import com.sodashop.sodashopspirngboot.repository.SodaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 import java.util.Optional;
 
 public class SodaService {
+    @Autowired
     private SodaRepository sodaRepository;
 
     public List<Soda> getAllSodas() {
