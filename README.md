@@ -8,7 +8,7 @@
 `GET: /soda/{id}` => It will return Soda with Id (Long Type) \
 `POST: /soda` => Post JSON Object with Same names as mentioned in Soda Entity Class to Save \
 `DELETE: /soda/{id}` => Delete the Soda with Given Id (Long Type). \
-`GET: /soda/search` => Takes query parameter to search. \
+`GET: /soda/search` => Takes query parameter to search. 
 
 <li> It can call the REST Endpoints with Javascript, React, Angular or any other front-end framework.
 
